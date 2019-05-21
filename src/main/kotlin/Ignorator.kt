@@ -1,4 +1,5 @@
 import java.io.File
+import java.nio.file.FileSystems
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
@@ -46,7 +47,12 @@ fun walkTree(root: File, path: Path, ignoreList: Set<String>): Set<String> {
     path.toFile().listFiles().forEach {
         if (ignoreList.contains(path.toString()) || ignoreList.contains(it.absolutePath)) return@forEach
         if (it.isDirectory) set.addAll(walkTree(root, it.toPath(), ignoreList))
-        else set.add(it.absolutePath.removePrefix(root.absolutePath + "/"))
+        else {
+            val file = it.absolutePath.removePrefix(root.absolutePath + "/")
+            if (FileSystems.getDefault().separator == "\\") file.replace("\\", "/")
+            // я так понял, вы под виндой тоже хотите нормальные слеши
+            set.add(file)
+        }
     }
     return set
 }
