@@ -1,0 +1,10 @@
+# Игнорим комментарий
+.gradle/
+# .idea/
+build/
+# такой путь есть, и он будет выведен:
+# build/
+# .idea/
+# build.gradle
+build.settings
+src/main/resources/
