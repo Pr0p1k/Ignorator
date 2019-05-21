@@ -1,0 +1,13 @@
+.git/hooks
+.git/info
+.git/logs
+.git/objects
+.git/refs
+.git/index
+.idea/encodings.xml
+.idea/codeStyles/
+gradle/wrapper
+src
+#
+gradle.properties
+gradlew.bat

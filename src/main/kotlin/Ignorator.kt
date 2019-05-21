@@ -27,7 +27,7 @@ fun main() {
 fun findIgnore(path: File): File = File(path, ".ignore")
 
 /**
- * Reads .ignore and returns set of needed
+ * Reads .ignore and returns set of paths to ignore
  */
 fun getIgnoreList(file: File): Set<String> {
     return if (file.exists())

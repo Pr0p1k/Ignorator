@@ -1,0 +1,9 @@
+.git/
+src/
+build.gradle
+gradlew
+gradlew.bat
+README.md
+build
+.idea
+.gradle
