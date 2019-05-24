@@ -48,8 +48,8 @@ fun walkTree(root: File, path: Path, ignoreList: Set<String>): Set<String> {
         if (ignoreList.contains(path.toString()) || ignoreList.contains(it.absolutePath)) return@forEach
         if (it.isDirectory) set.addAll(walkTree(root, it.toPath(), ignoreList))
         else {
-            val file = it.absolutePath.removePrefix(root.absolutePath + "/")
-            if (FileSystems.getDefault().separator == "\\") file.replace("\\", "/")
+            var file = it.absolutePath.removePrefix(root.absolutePath + "/")
+            if (FileSystems.getDefault().separator == "\\") file = file.replace("\\", "/")
             // я так понял, вы под виндой тоже хотите нормальные слеши
             set.add(file)
         }
